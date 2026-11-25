@@ -7,7 +7,7 @@ Soundboard com atalhos (1–9), cortador visual de waveform com fade/ganho (.wav
 ## Features
 
 - **Main Sections**: Soundboard (Teclas 1–9), Analisador de Espectro (Tempo Real), Cortador & Editor de Áudio (.wav)
-- **Available Actions**: Parar Tudo, Ouvir Trecho, Exportar Trecho (.wav)
+- **Available Actions**: Gravar Microfone, Parar Tudo, Normalizar Volume, Ouvir Trecho, Exportar Trecho (.wav)
 - **Auto-Save**: automatically persists changes in the browser (`localStorage`).
 - **Multi-Language**: built-in language switcher (`PT / EN / ES`).
 
