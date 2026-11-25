@@ -177,6 +177,46 @@
     activeSources = [];
   });
 
+  let mediaRec = null;
+  let recChunks = [];
+  $("btnRecMic").addEventListener("click", async () => {
+    if (mediaRec && mediaRec.state === "recording") {
+      mediaRec.stop();
+      $("btnRecMic").textContent = "Gravar Microfone";
+      return;
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      recChunks = [];
+      mediaRec = new MediaRecorder(stream);
+      mediaRec.ondataavailable = (e) => { if (e.data.size) recChunks.push(e.data); };
+      mediaRec.onstop = async () => {
+        stream.getTracks().forEach((t) => t.stop());
+        const blob = new Blob(recChunks, { type: "audio/webm" });
+        const buffer = await ctx.decodeAudioData(await blob.arrayBuffer());
+        tracks.push({ name: `Mic_${tracks.length + 1}.webm`, buffer });
+        renderTracks();
+      };
+      mediaRec.start();
+      $("btnRecMic").textContent = "Parar Gravação";
+    } catch (err) {
+      alert("Erro ao acessar microfone: " + err.message);
+    }
+  });
+
+  $("btnNormalize").addEventListener("click", () => {
+    const tr = tracks[Number($("trimSelect").value)];
+    if (!tr) return;
+    let peak = 0;
+    for (let ch = 0; ch < tr.buffer.numberOfChannels; ch++) {
+      const data = tr.buffer.getChannelData(ch);
+      for (let i = 0; i < data.length; i++) peak = Math.max(peak, Math.abs(data[i]));
+    }
+    if (peak > 0.001) {
+      $("trimGain").value = String(Math.min(300, Math.round((0.9 / peak) * 100)));
+    }
+  });
+
   document.addEventListener("keydown", (e) => {
     if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "SELECT") return;
     const n = parseInt(e.key, 10);
