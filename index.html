@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="piercer" />
+  <title>Piercer Audio Soundboard & Cutter</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Piercer Audio Soundboard &amp; Cutter</h1>
+      <p class="subtitle">Soundboard com atalhos (1–9), cortador visual de waveform com fade/ganho (.wav) e analisador de espectro</p>
+    </div>
+    <label class="btn btn-primary">+ Carregar Áudios<input type="file" id="audioFiles" accept="audio/*" multiple hidden /></label>
+  </header>
+
+  <main class="layout">
+    <section class="card">
+      <div class="head-row">
+        <h2>Soundboard (Teclas 1–9)</h2>
+        <button type="button" class="btn btn-ghost" id="btnStopAll">Parar Tudo</button>
+      </div>
+      <div id="padGrid" class="pad-grid">
+        <div class="subtitle">Carregue arquivos de áudio (.mp3, .wav, .ogg) para montar os pads.</div>
+      </div>
+      <h2 style="margin-top:16px;">Analisador de Espectro (Tempo Real)</h2>
+      <canvas id="specCanvas" width="520" height="130"></canvas>
+    </section>
+
+    <section class="card">
+      <h2>Cortador &amp; Editor de Áudio (.wav)</h2>
+      <div class="field">
+        <label>Faixa Selecionada</label>
+        <select id="trimSelect"><option value="">Carregue um áudio primeiro</option></select>
+      </div>
+      <canvas id="waveCanvas" width="560" height="140"></canvas>
+      <div class="row-3">
+        <div class="field"><label>Início (seg)</label><input type="number" id="trimStart" value="0" min="0" step="0.1" /></div>
+        <div class="field"><label>Fim (seg)</label><input type="number" id="trimEnd" value="0" min="0" step="0.1" /></div>
+        <div class="field"><label>Ganho (%)</label><input type="number" id="trimGain" value="100" min="10" max="300" /></div>
+      </div>
+      <div class="row-2">
+        <div class="field"><label>Fade-In (seg)</label><input type="number" id="fadeIn" value="0" min="0" step="0.1" /></div>
+        <div class="field"><label>Fade-Out (seg)</label><input type="number" id="fadeOut" value="0" min="0" step="0.1" /></div>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn btn-ghost" id="btnPreviewTrim">Ouvir Trecho</button>
+        <button type="button" class="btn btn-primary" id="btnExportWav">Exportar Trecho (.wav)</button>
+      </div>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+  <script src='../piercer_i18n.js'></script>
+</body>
+</html>
