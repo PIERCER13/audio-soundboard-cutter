@@ -1,3 +1,5 @@
+> **[English Version](./README.en.md)**
+
 # Piercer Audio Soundboard & Cutter
 
 Soundboard com atalhos (1–9), cortador visual de waveform com fade/ganho (.wav) e analisador de espectro
@@ -16,11 +18,14 @@ Soundboard com atalhos (1–9), cortador visual de waveform com fade/ganho (.wav
 
 ## Arquivos do Projeto
 
+- `.git`
+- `.gitattributes`
 - `app.js`
 - `index.html`
 - `README.md`
 - `start.bat`
 - `styles.css`
+- `README.en.md`
 
 ---
 Autor: **piercer**
