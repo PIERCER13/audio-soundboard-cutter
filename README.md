@@ -22,6 +22,7 @@ Soundboard com atalhos (1–9), cortador visual de waveform com fade/ganho (.wav
 - `.gitattributes`
 - `app.js`
 - `index.html`
+- `piercer_i18n.js`
 - `README.md`
 - `start.bat`
 - `styles.css`
