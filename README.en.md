@@ -2,12 +2,12 @@
 
 # Piercer Audio Soundboard & Cutter
 
-Soundboard com atalhos (1–9), cortador visual de waveform com fade/ganho (.wav) e analisador de espectro
+Soundboard with shortcuts (1–9), cutter visual of waveform with fade/ganho (.wav) and analyzer of spectrum
 
 ## Features
 
-- **Main Sections**: Soundboard (Teclas 1–9), Analisador de Espectro (Tempo Real), Cortador & Editor de Áudio (.wav)
-- **Available Actions**: Gravar Microfone, Parar Tudo, Normalizar Volume, Ouvir Trecho, Exportar Trecho (.wav)
+- **Main Sections**: Soundboard (keys 1–9), analyzer of spectrum (real time), cutter & editor of audio (.wav)
+- **Available Actions**: record microphone, Parar Tudo, normalize volume, Ouvir Trecho, export Trecho (.wav)
 - **Auto-Save**: automatically persists changes in the browser (`localStorage`).
 - **Multi-Language**: built-in language switcher (`PT / EN / ES`).
 
